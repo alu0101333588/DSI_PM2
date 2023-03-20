@@ -2,12 +2,15 @@ import { Estrategia } from "./Estrategia";
 import { Ordenacion } from "./Ordenacion";
   
 /**
-* --
+* Clase BubbleSort que implementa la interfaz Estrategia,
+* desarrollando a su vez el algoritmo de ordenación BubbleSort
 */
-
-class BubbleSort implements Estrategia {
+export class BubbleSort implements Estrategia {
+  /**
+  * Función execute que lleva a cabo el método de ordenación
+  * @param data
+  */
   execute(data: number[]) {
-
     for (let i : number = 0; i < data.length; i++) {
       for (let j : number = 0; j < data.length; j++) {
         if (j+1 < data.length) {
@@ -20,10 +23,6 @@ class BubbleSort implements Estrategia {
         
       }
     }
-    console.log(`First algorithm applied to ${data}`);
   }
 }
   
-
-let algortimoOrdenacion = new Ordenacion([5,3,1,6,7,2,4,8], new BubbleSort());
-algortimoOrdenacion.logic();

@@ -1,33 +1,47 @@
 import { Estrategia } from "./Estrategia";
+/**
+ * Clase Ordenación que incluye métodos generales
+ * de los distintos algoritmos
+ */
 export class Ordenacion {
-    /**
-    * The context has a reference to a estrategia object. It should only works
-    * with strategies through the estrategia interface
-    */
-    constructor(private _data: number[], private _estrategia: Estrategia) {
-    }
+  /**
+  * Constructor de la clase Ordenación
+  * @param _data alberga el array de number
+  * @param _estrategia para establecer el tipo de algoritmo a aplicar
+  * en la ordenación
+  */
+  constructor(private _data: number[], private _estrategia: Estrategia) {
+  }
     
-    /**
-    * A setter is required in order to change the estrategia in execution time
-    * @param estrategia Current estrategia applied
-    */
-    setestrategia(estrategia: Estrategia) {
-      this._estrategia = estrategia;
-    }
+  /**
+  * Setter para establecer o cambiar la estrategia a implementar
+  * @param estategia 
+  */
+  setestrategia(estrategia: Estrategia) {
+    this._estrategia = estrategia;
+  }
     
-    /**
-    * The context delegates some work to the estrategia object
-    */
-    logic() {
-      this._estrategia.execute(this._data);
-    }
+  /**
+  * El contexto delega algo del trabajo al objeto Estrategia
+  */
+  logic() {
+    this._estrategia.execute(this._data);
+  }
 
-    get Data() {
-        return this._data;
-    }
+  /**
+  * Getter del atributo _data
+  * @return _data
+  */
+  get Data() {
+    return this._data;
+  }
 
-    set Data(dato : number[]) {
-        this._data = dato;
-    }
+  /**
+  * Setter del atributo _data
+  * @param dato
+  */
+  set Data(dato : number[]) {
+    this._data = dato;
+  }
 
 }
